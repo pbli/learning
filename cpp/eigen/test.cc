@@ -5,6 +5,11 @@
 using namespace Eigen;
 using namespace std;
 
+template <typename T>
+void print(const T& t, string name) {
+    std::cout << name << endl << t << endl;
+}
+
 
 int main(int, char**)
 {
@@ -14,8 +19,8 @@ int main(int, char**)
   Eigen::Affine3d m = T*mm; 
   Eigen::Vector3d x(1,1,1);
   auto xx = m * x;
-  std::cout << "Now the matrix m is:" << std::endl << m.matrix() << std::endl;
-  std::cout << m.linear() << endl;
-  std::cout << m.translation() << endl;
+  print(m.matrix(), "T");
+  print(m.linear(), "R");
+  print(m.translation(), "S");
   return 0;
 }
